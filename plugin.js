@@ -106,8 +106,7 @@ CKEDITOR.config.removePlugins = 'iframe,div,stylesheetparser';
 									realElement.children[i].name = 'cke:source';
 								}
 							}
-							var fakeElement = editor.createFakeParserElement(realElement, 'cke_audio', 'audio', false);
-							return fakeElement;
+							return editor.createFakeParserElement(realElement, 'cke_audio', 'audio', false);
 						}
 					}
 				}
@@ -121,7 +120,7 @@ CKEDITOR.config.removePlugins = 'iframe,div,stylesheetparser';
 		dialogTitle: 'Audio properties',
 		fakeObject: 'Audio',
 		properties: 'Edit audio',
-		sourceAudio: 'Source audio',
+		sourceAudio: 'Link to MP3 Audio File',
 		sourceType: 'Audio type',
 		linkTemplate: '<a href="%src%">%type%</a> ',
 		fallbackTemplate: 'Your browser doesn\'t support audio.<br>Please download the file: %links%',

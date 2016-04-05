@@ -4,20 +4,6 @@
 CKEDITOR.dialog.add('audioinsulator', function (editor) {
 	var lang = editor.lang.audioinsulator;
 
-	function commitValue(audioNode) {
-		var value = this.getValue();
-
-		if (!value && this.id === 'id') {
-			value = generateId();
-		}
-
-		audioNode.setAttribute(this.id, value);
-
-		if (!value) {
-			return;
-		}
-	}
-
 	function commitSrc(audioNode, extraStyles, audios) {
 		var match = this.id.match(/(\w+)(\d)/);
 		var id = match[1];
@@ -25,26 +11,6 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 
 		var audio = audios[number] || (audios[number] = {});
 		audio[id] = this.getValue();
-	}
-
-	function commitBool(audioNode) {
-		var value = this.getValue();
-		if (value === 'false') {
-			audioNode.removeAttribute(this.id);
-		} else {
-			audioNode.setAttribute(this.id, value);
-		}
-		if (!value) {
-			return;
-		}
-	}
-
-	function loadValue(audioNode) {
-		if (audioNode) {
-			this.setValue(audioNode.getAttribute(this.id));
-		} else if (this.id === 'id') {
-			this.setValue(generateId());
-		}
 	}
 
 	function loadSrc(audioNode, audios) {
@@ -57,21 +23,6 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 			return;
 		}
 		this.setValue(audio[id]);
-	}
-
-	function loadBool(audioNode) {
-		if (audioNode) {
-			if (audioNode.getAttribute(this.id)) {
-				this.setValue(audioNode.getAttribute(this.id));
-			} else {
-				this.setValue('false');
-			}
-		}
-	}
-
-	function generateId() {
-		var now = new Date();
-		return 'audio' + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds();
 	}
 
 	// To automatically get the dimensions of the poster image
@@ -152,8 +103,8 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 				if (!audio || !audio.src) {
 					continue;
 				}
-				innerHtml += '<cke:source src="' + audio.src + '" type="' + audio.type + '" />';
-				links += link.replace('%src%', audio.src).replace('%type%', audio.type);
+				innerHtml += '<cke:source src="' + audio.src + '" type="audio/mp3" />';
+				links += link.replace('%src%', audio.src);
 			}
 			audioNode.setHtml(innerHtml);
 
@@ -179,110 +130,20 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 			}
 		},
 
-		contents: [
-			{
+		contents: [{
 				label: lang.mainTabTitle,
 				id: 'info',
 				elements: [{
 					type: 'hbox',
-					widths: ['100%'],
-					children: [{
-						type: 'text',
-						id: 'id',
-						label: 'Id',
-						commit: commitValue,
-						setup: loadValue
-					}]
-				}, {
-					type: 'hbox',
 					widths: ['', '100px', '75px'],
 					children: [{
-						type: 'text',
+						type: 'textarea',
 						id: 'src0',
 						label: lang.sourceAudio,
 						commit: commitSrc,
 						setup: loadSrc
-					}, {
-						type: 'button',
-						id: 'browse',
-						hidden: 'true',
-						style: 'display:inline-block;margin-top:10px;',
-						filebrowser: {
-							action: 'Browse',
-							target: 'info:src0',
-							url: editor.config.filebrowserAudioBrowseUrl || editor.config.filebrowserBrowseUrl
-						},
-						label: editor.lang.common.browseServer
-					}, {
-						id: 'type0',
-						label: lang.sourceType,
-						type: 'select',
-						default: 'audio/mpeg',
-						items: [
-							['mp3', 'audio/mpeg'],
-							['wav', 'audio/wav']
-						],
-						commit: commitSrc,
-						setup: loadSrc
 					}]
-				}, {
-					type: 'hbox',
-					widths: ['', '', '80%'],
-					children: [{
-						type: 'select',
-						id: 'autoplay',
-						label: 'Autoplay',
-						default: 'autoplay',
-						items: [
-							['Yes', 'autoplay'],
-							['No', 'false']
-						],
-						commit: commitBool,
-						setup: loadBool
-					}, {
-						type: 'select',
-						id: 'loop',
-						label: 'Loop',
-						default: 'loop',
-						items: [
-							['Yes', 'loop'],
-							['No', 'false']
-						],
-						commit: commitBool,
-						setup: loadBool
-					}, {
-						type: 'select',
-						id: 'controls',
-						label: 'Controls',
-						default: 'controls',
-						items: [
-							['Active', 'controls'],
-							['Hidden', 'false']
-						],
-						commit: commitBool,
-						setup: loadBool
-					}
-					]
-				}
-				]
-			}, {
-				type: 'hbox',
-				id: "Upload",
-				hidden: true,
-				filebrowser: "uploadButton",
-				label: lang.uploadTabTitle,
-				elements: [{
-					type: "file",
-					id: "upload",
-					style: "height:40px"
-				}, {
-					type: "fileButton",
-					id: "uploadButton",
-					filebrowser: "info:src0",
-					label: lang.uploadTabTitle,
-					for: ["Upload", "upload"]
-				}
-				]
+				}]
 			}
 		]
 	};
