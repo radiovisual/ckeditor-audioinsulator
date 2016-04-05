@@ -4,7 +4,7 @@
 
 **Tip:** This plugin works seamlessly with [ckeditor-metadata](https://github.com/radiovisual/ckeditor-metadata).
 
-This plugin only supports links to mp3 files (because mp3 has the best browser support). If you want more features or support, try [ckeditor-audio-plugin]((https://github.com/harentius/ckeditor-audio-plugin). 
+This plugin only supports links to mp3 files (because mp3 has the best browser support). If you want more features or support, try [ckeditor-audio-plugin](https://github.com/harentius/ckeditor-audio-plugin). 
 
 ## Installation
 
