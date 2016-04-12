@@ -86,7 +86,8 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 			} else {
 				audioNode = CKEDITOR.dom.element.createFromHtml('<cke:audio></cke:audio>', editor.document);
 				audioNode.setAttributes({
-					controls: 'controls'
+					controls: 'controls',
+					class: 'audioinsulator'
 				});
 			}
 
@@ -131,20 +132,19 @@ CKEDITOR.dialog.add('audioinsulator', function (editor) {
 		},
 
 		contents: [{
-				label: lang.mainTabTitle,
-				id: 'info',
-				elements: [{
-					type: 'hbox',
-					widths: ['', '100px', '75px'],
-					children: [{
-						type: 'textarea',
-						id: 'src0',
-						label: lang.sourceAudio,
-						commit: commitSrc,
-						setup: loadSrc
-					}]
+			label: lang.mainTabTitle,
+			id: 'info',
+			elements: [{
+				type: 'hbox',
+				widths: ['', '100px', '75px'],
+				children: [{
+					type: 'textarea',
+					id: 'src0',
+					label: lang.sourceAudio,
+					commit: commitSrc,
+					setup: loadSrc
 				}]
-			}
-		]
+			}]
+		}]
 	};
 });
