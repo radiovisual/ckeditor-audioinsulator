@@ -31,6 +31,16 @@ Once installed, you can use the new Embed Audio button in the Insert toolbar
 
 This will let you embed an audio tag into the editor.
 
+## Output
+
+This plugin will output HTML with the following format:
+
+```html
+<audio class="audioinsulator" controls="controls">
+    <source src="audio.mp3" type="audio/mp3" />
+</audio>
+```
+
 ## Prior Art
 
 This plugin is a specialized, stripped-down version of [harentius/ckeditor-audio-plugin](https://github.com/harentius/ckeditor-audio-plugin), which is a fork of [aemr3/cke_audio](https://github.com/aemr3/cke_audio), which is a fork of [Philalawst/cke_audio](https://github.com/Philalawst/cke_audio), which was based off of the CKEditor Video plugin created by Alfonso Martínez de Lizarrondo.  
