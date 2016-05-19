@@ -44,8 +44,13 @@ CKEDITOR.config.removePlugins = 'iframe,div,stylesheetparser';
 			CKEDITOR.dialog.add('audioinsulator', this.path + 'dialogs/audioinsulator.js');
 
 			editor.addCommand('audioinsulator', new CKEDITOR.dialogCommand('audioinsulator', {
-				allowedContent: 'div{*}(*); audio{*}[*]; img{*}[*] p{*}[*] source{*}[*]'
+				allowedContent: 'div{*}(*); audio(*){*}[*]; img(*){*}[*]; p(*){*}[*]; source(*){*}[*]'
 			}));
+
+			// for debugging purposes.
+			editor.on('instanceReady', function() {
+				console.log('allowedContent (audioinsulator)', editor.filter.allowedContent);
+			});
 
 			editor.ui.addButton('Audioinsulator', {
 				label: lang.toolbar,
