@@ -49,7 +49,7 @@ CKEDITOR.config.removePlugins = 'iframe,div,stylesheetparser';
 
 			// for debugging purposes.
 			editor.on('instanceReady', function() {
-				console.log('allowedContent (audioinsulator)', editor.filter.allowedContent);
+				// console.log('allowedContent (audioinsulator)', editor.filter.allowedContent);
 			});
 
 			editor.ui.addButton('Audioinsulator', {
