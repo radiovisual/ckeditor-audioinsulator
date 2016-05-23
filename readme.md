@@ -37,8 +37,12 @@ This plugin will output HTML with the following format:
 
 ```html
 <div class="audioinsulator">
-    <audio controls="" data-title="..." data-caption="..." data-credit="..."><source src="audio.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
-    <div class="caption_credit"><p>Caption goes here. <span>@credit</span></p></div>
+    <audio class="ain-audio" controls=""><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>
+    <div class="caption_credit">
+        <p>
+            <span class="ain-caption"></span> <span class="ain-credit"></span>
+        </p>
+    </div>
 </div>
 ```
 

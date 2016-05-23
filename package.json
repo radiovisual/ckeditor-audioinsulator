@@ -1,6 +1,6 @@
 {
   "name": "ckeditor-audioinsulator",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Embed contextMenu/metadata-friendly audio tags into CKEditor.",
   "main": "plugin.js",
   "scripts": {
