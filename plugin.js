@@ -1,5 +1,10 @@
 /* eslint-disable no-undef */
 
+// Use forceSimpleAmpersand to keep CKEditor
+// from changing `&amp;` to `&amp;amp` when
+// accepting the mp3 audio link.
+CKEDITOR.config.forceSimpleAmpersand = true;
+
 CKEDITOR.plugins.add('audioinsulator', {
 	requires: 'widget',
 	icons: 'audioinsulator',
@@ -56,13 +61,15 @@ CKEDITOR.plugins.add('audioinsulator', {
 
 			init: function () {
 				this.setData('source', this.parts.source.getAttribute('src'));
+				console.log('srouce', this.parts.source.getAttribute('src'));
 				this.setData('credit', this.parts.credit.getText());
 				this.setData('header', this.parts.header.getText());
 				this.setData('caption', this.parts.caption.getText());
 			},
 
 			data: function (widget) {
-				this.parts.source.setAttribute('src', widget.data.source);
+				this.parts.source.setAttribute('src', decodeURIComponent(widget.data.source));
+				console.log('data', this.parts.source.getAttribute('src'));
 				this.parts.header.setHtml(widget.data.header);
 				this.parts.caption.setHtml(widget.data.caption);
 				this.parts.credit.setHtml(widget.data.credit);
