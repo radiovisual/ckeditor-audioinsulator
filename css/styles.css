@@ -7,23 +7,30 @@
     font-size: 10px;
 }
 
+span.ain-header {
+    user-select: none !important;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 span.ain-credit {
     font-style: italic;
 }
 
 .audioinsulator {
     padding: 11px;
-    background-image: url('stripe.png');
+    background-color: #f1f1f1;
+    border: dotted thin lightgrey;
 }
 
 .audioinsulator:before {
     display: block;
-    content: "Double-click striped area to edit audio.";
+    content: "Double-click gray area to edit audio widget.";
     font-style: italic;
     font-size: 10px;
     color: #B3B3B3;
     background-color: white;
     padding: 2px 4px;
     margin: 6px 0;
-    width: 174px;
+    width: 199px;
 }

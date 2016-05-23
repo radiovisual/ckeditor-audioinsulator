@@ -10,6 +10,18 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 				id: 'info',
 				elements: [
 					{
+						id: 'header',
+						type: 'text',
+						label: 'Header',
+
+						setup: function (widget) {
+							this.setValue(widget.data.header);
+						},
+						commit: function (widget) {
+							widget.setData('header', this.getValue());
+						}
+					},
+					{
 						id: 'source',
 						type: 'textarea',
 						label: 'Link to MP3 Audio',

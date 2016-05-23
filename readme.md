@@ -1,6 +1,6 @@
 # ckeditor-audioinsulator
 
-> Embed audio tags with a caption and credit into CKEditor.
+> Embed audio tags with a header, caption and credit into CKEditor.
 
 This plugin only supports links to mp3 files (because mp3 has the best browser support). If you want more features or support, try [ckeditor-audio-plugin](https://github.com/harentius/ckeditor-audio-plugin). 
 
@@ -35,6 +35,7 @@ This plugin will output HTML with the following format:
 
 ```html
 <div class="audioinsulator">
+    <h4><span class="ain-header"></span></h4>
     <audio class="ain-audio" controls=""><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>
     <div class="caption_credit">
         <p>
@@ -43,6 +44,11 @@ This plugin will output HTML with the following format:
     </div>
 </div>
 ```
+
+**Note:** This might look strange `<h4><span class="ain-header"></span></h4>` (embedding `span` tags within the `h4` tag),
+but this is done in concert with `h4 { user-select:none; }` to force CKEditor users to use the widget dialog to update the
+text instead of editing inline. I made this choice to get around some quirky behaviors of the CKEditor widget component. 
+
 
 ## Related
 
