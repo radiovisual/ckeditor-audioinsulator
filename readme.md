@@ -1,8 +1,6 @@
 # ckeditor-audioinsulator
 
-> Embed contextMenu/metadata-friendly audio tags into CKEditor.
-
-**Tip:** This plugin works seamlessly with [ckeditor-metadata](https://github.com/radiovisual/ckeditor-metadata).
+> Embed audio tags with a caption and credit into CKEditor.
 
 This plugin only supports links to mp3 files (because mp3 has the best browser support). If you want more features or support, try [ckeditor-audio-plugin](https://github.com/harentius/ckeditor-audio-plugin). 
 
@@ -25,11 +23,11 @@ CKEDITOR.config.allowedContent = true;
 
 ## Usage
 
-Once installed, you can use the new Embed Audio button in the Insert toolbar
+Once installed, you can use the *Insert Audio Tag* button in the Insert toolbar
 
 ![toolbar screenshot](media/screenshot-toolbar.png)
 
-This will let you embed an audio tag into the editor.
+This will let you embed an audio tag into the editor by supplying the .mp3 audio file, and an optional caption and credit.
 
 ## Output
 
