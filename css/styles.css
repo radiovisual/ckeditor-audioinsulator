@@ -1,0 +1,29 @@
+.audioinsulator audio {
+    width:50%;
+}
+
+.audioinsulator p {
+    user-select: none;
+    font-size: 10px;
+}
+
+span.ain-credit {
+    font-style: italic;
+}
+
+.audioinsulator {
+    padding: 11px;
+    background-image: url('stripe.png');
+}
+
+.audioinsulator:before {
+    display: block;
+    content: "Double-click striped area to edit audio.";
+    font-style: italic;
+    font-size: 10px;
+    color: #B3B3B3;
+    background-color: white;
+    padding: 2px 4px;
+    margin: 6px 0;
+    width: 174px;
+}
