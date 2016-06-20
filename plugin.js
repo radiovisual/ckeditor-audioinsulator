@@ -2,7 +2,7 @@
 
 // Use forceSimpleAmpersand to keep CKEditor
 // from changing `&amp;` to `&amp;amp` when
-// reading/printing the mp3 audio link.
+// accepting the mp3 audio link.
 CKEDITOR.config.forceSimpleAmpersand = true;
 
 CKEDITOR.plugins.add('audioinsulator', {
