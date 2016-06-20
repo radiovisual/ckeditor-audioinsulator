@@ -61,7 +61,6 @@ CKEDITOR.plugins.add('audioinsulator', {
 
 			init: function () {
 				this.setData('source', this.parts.source.getAttribute('src'));
-				console.log('srouce', this.parts.source.getAttribute('src'));
 				this.setData('credit', this.parts.credit.getText());
 				this.setData('header', this.parts.header.getText());
 				this.setData('caption', this.parts.caption.getText());
@@ -69,7 +68,6 @@ CKEDITOR.plugins.add('audioinsulator', {
 
 			data: function (widget) {
 				this.parts.source.setAttribute('src', decodeURIComponent(widget.data.source));
-				console.log('data', this.parts.source.getAttribute('src'));
 				this.parts.header.setHtml(widget.data.header);
 				this.parts.caption.setHtml(widget.data.caption);
 				this.parts.credit.setHtml(widget.data.credit);
