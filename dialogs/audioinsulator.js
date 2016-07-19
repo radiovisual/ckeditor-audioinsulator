@@ -61,22 +61,23 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 				]
 			}, {
 				type : 'hbox',
-				id : "upload",
-				hidden : false,
-				filebrowser : "uploadButton",
+				id : 'Upload',
+				hidden : true,
+				filebrowser : 'uploadButton',
 				label : 'Upload',
 				elements: [
 					{
-						type : "file",
-						id : "upload",
-						style : "height:40px"
+						type : 'file',
+						id : 'upload',
+						style : 'height:40px',
+						size: 38
 					},
 					{
-						type : "fileButton",
-						id : "uploadButton",
-						filebrowser : "info:source",
+						type : 'fileButton',
+						id : 'uploadButton',
+						filebrowser : 'info:source',
 						label : 'Upload',
-						for : ["Upload", "upload"]
+						for : ['Upload', 'upload']
 					}
 				]
 			}
