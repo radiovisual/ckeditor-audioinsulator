@@ -8,6 +8,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 		contents: [
 			{
 				id: 'info',
+				label: 'Audio Settings',
 				elements: [
 					{
 						id: 'header',
@@ -56,6 +57,26 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 						commit: function (widget) {
 							widget.setData('credit', this.getValue() || ' ');
 						}
+					}
+				]
+			}, {
+				type : 'hbox',
+				id : "upload",
+				hidden : false,
+				filebrowser : "uploadButton",
+				label : 'Upload',
+				elements: [
+					{
+						type : "file",
+						id : "upload",
+						style : "height:40px"
+					},
+					{
+						type : "fileButton",
+						id : "uploadButton",
+						filebrowser : "info:source",
+						label : 'Upload',
+						for : ["Upload", "upload"]
 					}
 				]
 			}
