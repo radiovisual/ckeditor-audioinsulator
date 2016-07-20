@@ -4,6 +4,7 @@
 // from changing `&amp;` to `&amp;amp` when
 // accepting the mp3 audio link.
 CKEDITOR.config.forceSimpleAmpersand = true;
+CKEDITOR.config.allowedContent = true;
 
 CKEDITOR.plugins.add('audioinsulator', {
 	requires: 'widget',
@@ -33,6 +34,10 @@ CKEDITOR.plugins.add('audioinsulator', {
 			dialog: 'audioinsulator',
 			button: 'Insert Audio Tag',
 
+			allowedContent: 'div[*]{*}(*); p[*]{*}(*) span[*]{*}(*); audio(!ain-audio)[controls]{*}; source[!src, type](*){*}; h4',
+
+			requiredContent: 'div(!audioinsulator)',
+
 			template: '<div class="audioinsulator">' +
 			'<h4><span class="ain-header"></span></h4>' +
 			'<audio class="ain-audio" controls=""><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>' +
@@ -41,9 +46,7 @@ CKEDITOR.plugins.add('audioinsulator', {
 
 			editables: _editables,
 
-			allowedContent: 'div[*]{*}(*); span(*)[*]{*}; audio[*](*){*}; source(*){*}[*]; p[*](*){*}; h4',
 
-			requiredContent: 'div(!audioinsulator)',
 
 			// convert pasted/generated markup into this widget
 			// like the output from: github.com/radiovisual/ckeditor-mediaboxconvert
@@ -60,10 +63,10 @@ CKEDITOR.plugins.add('audioinsulator', {
 			},
 
 			init: function () {
-				this.setData('source', this.parts.source.getAttribute('src'));
-				this.setData('credit', this.parts.credit.getText());
-				this.setData('header', this.parts.header.getText());
-				this.setData('caption', this.parts.caption.getText());
+				this.setData('source', this.parts.source.getAttribute('src') || '');
+				this.setData('credit', this.parts.credit.getText() || '');
+				this.setData('header', this.parts.header.getText() || '');
+				this.setData('caption', this.parts.caption.getText() || '');
 			},
 
 			data: function (widget) {
