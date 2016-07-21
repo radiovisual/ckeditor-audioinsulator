@@ -34,7 +34,7 @@ CKEDITOR.plugins.add('audioinsulator', {
 			dialog: 'audioinsulator',
 			button: 'Insert Audio Tag',
 
-			allowedContent: 'div[*]{*}(*); p{*}[*](*) span[*]{*}(*); audio(*)[*]{*}; source[*](*){*}; h4',
+			allowedContent: 'div[*]{*}(*); p{*}[*](*) span[*]{*}(*); audio(!ain-audio)[controls]{*}; source[!src, !type](*){*}; h4',
 
 			requiredContent: 'div(!audioinsulator)',
 
