@@ -62,17 +62,29 @@ CKEDITOR.plugins.add('audioinsulator', {
 			},
 
 			init: function () {
-				this.setData('source', this.parts.source.getAttribute('src'));
-				this.setData('credit', this.parts.credit.getText());
-				this.setData('header', this.parts.header.getText());
-				this.setData('caption', this.parts.caption.getText());
+				if (this.setData) {
+					this.setData('source', this.parts.source ? this.parts.source.getAttribute('src') : '');
+					this.setData('credit', this.parts.credit ? this.parts.credit.getText() : '');
+					this.setData('header', this.parts.header ? this.parts.header.getText() : '');
+					this.setData('caption', this.parts.caption ? this.parts.caption.getText() : '');
+				}
 			},
 
 			data: function (widget) {
-				this.parts.source.setAttribute('src', decodeURIComponent(widget.data.source));
-				this.parts.header.setHtml(widget.data.header);
-				this.parts.caption.setHtml(widget.data.caption);
-				this.parts.credit.setHtml(widget.data.credit);
+				if (this.parts) {
+					if (this.parts.source) {
+						this.parts.source.setAttribute('src', decodeURIComponent(widget.data.source));
+					}
+					if (this.parts.header) {
+						this.parts.header.setHtml(widget.data.header);
+					}
+					if (this.parts.caption) {
+						this.parts.caption.setHtml(widget.data.caption);
+					}
+					if (this.parts.credit) {
+						this.parts.credit.setHtml(widget.data.credit);
+					}
+				}
 			}
 		});
 	}
