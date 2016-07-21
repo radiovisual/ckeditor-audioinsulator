@@ -1,10 +1,17 @@
 /* eslint-disable no-undef */
 
+if (CKEDITOR.env.ie && CKEDITOR.env.version < 9) {
+	CKEDITOR.tools.enableHtml5Elements(document);
+}
+
 // Use forceSimpleAmpersand to keep CKEditor
 // from changing `&amp;` to `&amp;amp` when
 // accepting the mp3 audio link.
 CKEDITOR.config.forceSimpleAmpersand = true;
 CKEDITOR.config.allowedContent = true;
+CKEDITOR.title = false;
+CKEDITOR.config.enterMode = 2;
+
 
 CKEDITOR.plugins.add('audioinsulator', {
 	requires: 'widget',
@@ -40,7 +47,7 @@ CKEDITOR.plugins.add('audioinsulator', {
 
 			template: '<div class="audioinsulator">' +
 			'<h4><span class="ain-header"></span></h4>' +
-			'<audio class="ain-audio" controls=""><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>' +
+			'<audio class="ain-audio" controls><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>' +
 			'<div class="ain-caption"></div>' +
 			'<div class="ain-credit"></div>' +
 			'</div>',
