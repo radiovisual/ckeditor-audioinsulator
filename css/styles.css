@@ -34,3 +34,13 @@ span.ain-credit {
     margin: 6px 0;
     width: 199px;
 }
+
+.ain-caption:before {
+    content: "Caption: ";
+    color: #B3B3B3;
+}
+
+.ain-credit:before {
+    content: "Credit: ";
+    color: #B3B3B3;
+}
