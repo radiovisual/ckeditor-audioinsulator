@@ -1,17 +1,10 @@
 /* eslint-disable no-undef */
 
-if (CKEDITOR.env.ie && CKEDITOR.env.version < 9) {
-	CKEDITOR.tools.enableHtml5Elements(document);
-}
-
 // Use forceSimpleAmpersand to keep CKEditor
 // from changing `&amp;` to `&amp;amp` when
 // accepting the mp3 audio link.
 CKEDITOR.config.forceSimpleAmpersand = true;
 CKEDITOR.config.allowedContent = true;
-CKEDITOR.title = false;
-CKEDITOR.config.enterMode = 2;
-
 
 CKEDITOR.plugins.add('audioinsulator', {
 	requires: 'widget',
@@ -19,11 +12,10 @@ CKEDITOR.plugins.add('audioinsulator', {
 	init: function (editor) {
 		var _editables = {
 			header: {
-				selector: 'span.ain-header'
+				selector: 'h4'
 			},
 			source: {
-				selector: 'source',
-				allowedContent: 'source(*){*}[*];'
+				selector: '.ain-source'
 			},
 			caption: {
 				selector: 'div.ain-caption'
@@ -41,15 +33,15 @@ CKEDITOR.plugins.add('audioinsulator', {
 			dialog: 'audioinsulator',
 			button: 'Insert Audio Tag',
 
-			allowedContent: 'div[*]{*}(*); p{*}[*](*) span[*]{*}(*); audio(!ain-audio)[controls]{*}; source[!src, !type](*){*}; h4',
+			allowedContent: 'div(*); h4; p',
 
 			requiredContent: 'div(!audioinsulator)',
 
 			template: '<div class="audioinsulator">' +
-			'<h4><span class="ain-header"></span></h4>' +
-			'<audio class="ain-audio" controls><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>' +
-			'<div class="ain-caption"></div>' +
-			'<div class="ain-credit"></div>' +
+			'	<h4></h4>' +
+			'	<div class="ain-source"><p></p></div>' +
+			'	<div class="ain-caption"><p></p></div>' +
+			'	<div class="ain-credit"><p></p></div>' +
 			'</div>',
 
 			editables: _editables,
@@ -69,29 +61,17 @@ CKEDITOR.plugins.add('audioinsulator', {
 			},
 
 			init: function () {
-				if (this.setData) {
-					this.setData('source', this.parts.source ? this.parts.source.getAttribute('src') : '');
-					this.setData('credit', this.parts.credit ? this.parts.credit.getText() : '');
-					this.setData('header', this.parts.header ? this.parts.header.getText() : '');
-					this.setData('caption', this.parts.caption ? this.parts.caption.getText() : '');
-				}
+				this.setData('source', this.parts.source.getText());
+				this.setData('credit', this.parts.credit.getText());
+				this.setData('header', this.parts.header.getText());
+				this.setData('caption', this.parts.caption.getText());
 			},
 
 			data: function (widget) {
-				if (this.parts) {
-					if (this.parts.source) {
-						this.parts.source.setAttribute('src', decodeURIComponent(widget.data.source));
-					}
-					if (this.parts.header) {
-						this.parts.header.setHtml(widget.data.header);
-					}
-					if (this.parts.caption) {
-						this.parts.caption.setHtml(widget.data.caption);
-					}
-					if (this.parts.credit) {
-						this.parts.credit.setHtml(widget.data.credit);
-					}
-				}
+				this.parts.source.setHtml(widget.data.source);
+				this.parts.header.setHtml(widget.data.header);
+				this.parts.caption.setHtml(widget.data.caption);
+				this.parts.credit.setHtml(widget.data.credit);
 			}
 		});
 	}

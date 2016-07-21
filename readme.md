@@ -35,17 +35,12 @@ This plugin will output HTML with the following format:
 
 ```html
 <div class="audioinsulator">
-    <h4><span class="ain-header"></span></h4>
-    <audio class="ain-audio" controls=""><source src="" type="audio/mpeg">Your browser does not support the audio element.</audio>' +
-    <div class="ain-caption"></div>
-    <div class="ain-credit"></div>
+    <h4></h4>
+    <div class="ain-source"><p></p></div>
+    <div class="ain-caption"><p></p></div>
+    <div class="ain-credit"><p></p></div>
 </div>
 ```
-
-**Note:** This might look strange `<h4><span class="ain-header"></span></h4>` (embedding `span` tags within the `h4` tag),
-but this is done in concert with `h4 { user-select:none; }` to force CKEditor users to use the widget dialog to update the
-text instead of editing inline. I made this choice to get around some quirky behaviors of the CKEditor widget component. 
-
 
 ## Related
 

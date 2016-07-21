@@ -19,7 +19,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 							this.setValue(widget.data.header);
 						},
 						commit: function (widget) {
-							widget.setData('header', this.getValue());
+							widget.setData('header', this.getValue() || '');
 						}
 					},
 					{
@@ -31,7 +31,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 							this.setValue(widget.data.source);
 						},
 						commit: function (widget) {
-							widget.setData('source', this.getValue());
+							widget.setData('source', this.getValue() || '');
 						}
 					},
 					{
@@ -43,7 +43,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 							this.setValue(widget.data.caption);
 						},
 						commit: function (widget) {
-							widget.setData('caption', this.getValue() || ' ');
+							widget.setData('caption', this.getValue() || '');
 						}
 					},
 					{
@@ -55,7 +55,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 							this.setValue(widget.data.credit);
 						},
 						commit: function (widget) {
-							widget.setData('credit', this.getValue() || ' ');
+							widget.setData('credit', this.getValue() || '');
 						}
 					}
 				]
@@ -77,7 +77,7 @@ CKEDITOR.dialog.add('audioinsulator', function () {
 						id : 'uploadButton',
 						filebrowser : 'info:source',
 						label : 'Upload',
-						for : ['Upload', 'upload']
+						for : ["Upload", "upload"]
 					}
 				]
 			}

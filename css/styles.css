@@ -7,10 +7,15 @@
     font-size: 10px;
 }
 
-span.ain-header {
+span {
+    display: block;
+}
+
+span.ain-header, h4 {
     user-select: none !important;
     font-size: 14px;
     font-weight: bold;
+    margin:15px 0 2px 0 !important;
 }
 
 span.ain-credit {
@@ -25,14 +30,14 @@ span.ain-credit {
 
 .audioinsulator:before {
     display: block;
-    content: "Double-click gray area to edit audio widget.";
+    content: "AUDIO FILE: Double-click gray area to edit audio widget.";
     font-style: italic;
     font-size: 10px;
     color: #B3B3B3;
     background-color: white;
     padding: 2px 4px;
     margin: 6px 0;
-    width: 199px;
+    width: 270px;
 }
 
 .ain-caption:before {
@@ -40,6 +45,17 @@ span.ain-credit {
     color: #B3B3B3;
 }
 
+.ain-source {
+    font-style: italic;
+    font-size: 10px;
+    color: #B3B3B3;
+    padding-bottom: 5px;
+}
+
+.ain-source p {
+    padding: 0;
+    margin: 0;
+}
 .ain-credit:before {
     content: "Credit: ";
     color: #B3B3B3;
